@@ -1,49 +1,21 @@
-package hotelmanagementsystem;
+package com.example.hotelmanagementsystem;
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.*;
+import jakarta.persistence.*;
 import java.util.Date;
+import java.util.List;
+import java.util.Optional;
 
-public class HotelManagementSystem {
-	
+@SpringBootApplication
+public class HotelManagementSystemApplication {
+
     public static void main(String[] args) {
-        // Create a hotel
-        Hotel hotel = new Hotel();
-
-        // Create some rooms
-        Room room1 = new Room(101, RoomType.SINGLE);
-        Room room2 = new Room(102, RoomType.DOUBLE);
-        Room room3 = new Room(103, RoomType.SUITE);
-
-        // Add rooms to the hotel
-        hotel.addRoom(room1);
-        hotel.addRoom(room2);
-        hotel.addRoom(room3);
-
-        // Display available rooms
-        hotel.displayAvailableRooms();
-
-        // Make a reservation
-        Guest guest1 = new Guest("John Doe", "john.doe@example.com");
-        hotel.makeReservation(guest1, RoomType.SINGLE, new Date(), new Date());
-
-        // Display reservations
-        hotel.displayReservations();
-
-        // Check-in
-        hotel.checkIn(1);
-
-        // Display reservations after check-in
-        hotel.displayReservations();
-
-        // Check-out
-        hotel.checkOut(1);
-
-        // Display bills
-        hotel.displayBills();
-
-        // Mark bill as paid
-        hotel.markBillAsPaid(1);
-
-        // Display bills after payment
-        hotel.displayBills();
+        SpringApplication.run(HotelManagementSystemApplication.class, args);
     }
 }
